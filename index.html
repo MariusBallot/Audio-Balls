@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Doc's Name</title>
+  <meta name="viewport" content="width=device-width">
+  <link href="css/main.css" rel="stylesheet">
+  <script src="js/three.js"></script>
+  <script src="js/MTLLoader.js"></script>
+  <script src="js/OBJLoader.js"></script>
+  <script src="js/TweenMax.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1>Audio balls</h1>
+    <p>A generative sound design experiment for College Vanier Generative design workshop<br>
+      <a href="" target="_blank"> GitHub Source Code</a><br> Music : Take it Easy - Kurt Ueanela</p>
+
+    <button>OK</button>
+  </header>
+
+  <div class="interface">
+    <div class="butWrapper">
+      <button class="left">left</button>
+      <button class="play">play</button>
+      <button class="right">right</button>
+    </div>
+  </div>
+
+  <audio id="audioFile" type="audio/mpeg" muted>
+    <source src="assets/takeItEasy.mp3" type="audio/mpeg">
+  </audio>
+  <div id="container"></div>
+
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
