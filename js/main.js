@@ -1,3 +1,8 @@
+import { TweenLite } from 'gsap';
+import * as THREE from 'three';
+
+const fish = require('../assets/textures/fish.png');
+
 (function () {
     let scene, camera, renderer;
 
@@ -50,7 +55,7 @@
     pointLight2.position.set(20, 20, 20);
     scene.add(pointLight2);
 
-    let helper = new THREE.AxisHelper();
+    let helper = new THREE.AxesHelper();
     // scene.add(helper);
 
     let fs = 500;
@@ -63,7 +68,6 @@
     floor.rotation.x = Math.PI / 2;
     floor.position.y = -20;
     floor.position.z = fs / 2 + camera.position.z;
-
 
     scene.add(floor);
     console.log(floor.geometry.vertices)
@@ -104,7 +108,7 @@
 
     let parts = [];
     let numPart = 20;
-    count = 0;
+    let count = 0;
     for (let long = 0; long < Math.PI; long += Math.PI / numPart) {
         for (let lat = 0; lat < Math.PI * 2; lat += Math.PI * 2 / numPart) {
             parts[count] = new THREE.Mesh(new THREE.SphereGeometry(0.03), new THREE.MeshBasicMaterial({ color: 0xffffff }))
@@ -114,7 +118,6 @@
     }
     art2.position.x = 20;
     arts.add(art2);
-
 
     //3.***********************************************************************
     //3.***********************************************************************
@@ -128,9 +131,9 @@
     art3.add(innerBall)
 
     let metalBall = new THREE.Mesh(new THREE.SphereGeometry(5, 10, 10), new THREE.MeshStandardMaterial({
-        map: textureLoader.load('assets/textures/fish.png'),
-        displacementMap: textureLoader.load('assets/textures/fish.png'),
-        alphaMap: textureLoader.load('assets/textures/fish.png'),
+        map: textureLoader.load(fish),
+        displacementMap: textureLoader.load(fish),
+        alphaMap: textureLoader.load(fish),
         displacementScale: 3,
         transparent: true,
         side: THREE.DoubleSide,
@@ -138,7 +141,6 @@
     art3.add(metalBall)
     art3.position.x = -20;
     arts.add(art3)
-
 
     scene.add(arts)
 
@@ -178,15 +180,12 @@
     }
 
     document.addEventListener('mousemove', onDocumentMouseMove, false);
-
     let mouseX = 0;
     let mouseY = 0;
 
     function onDocumentMouseMove(event) {
-
         mouseX = (event.clientX - window.innerWidth / 2) / 100;
         mouseY = (event.clientY - window.innerHeight / 2) / 100;
-
     }
 
     function camMove() {
@@ -204,7 +203,6 @@
 
         }
         // floor.geometry.verticesNeedUpdate = true
-
     }
 
 
@@ -228,13 +226,11 @@
     window.addEventListener('resize', onWindowResize, false);
 
     function onWindowResize() {
-
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
-
         renderer.setSize(window.innerWidth, window.innerHeight);
-
     }
+
     let xpos = 0;
     function goLeft() {
         xpos -= 20
@@ -264,6 +260,4 @@
     ok.addEventListener('click', function () {
         document.querySelector('header').classList.add('off');
     })
-
-
 }());
