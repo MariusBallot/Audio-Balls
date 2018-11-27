@@ -1,3 +1,5 @@
+
+
 (function () {
     let scene, camera, renderer;
 
@@ -209,7 +211,7 @@
 
 
     TweenLite.ticker.addEventListener("tick", animate);
-
+    let x = 0;
     function animate() {
         analyser.getByteFrequencyData(fdata);
         renderer.render(scene, camera);
@@ -220,6 +222,8 @@
         moveFloor()
         wire.rotation.x += fdata[100] / 2550;
         wire.rotation.y += 0.01;
+        x++
+        console.log(fdata)
     }
 
     animate();
